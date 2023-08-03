@@ -9,3 +9,10 @@ class Book(BaseModel):
     number: int
     locccn: int
     title: List[str]
+
+
+class UpdateBook(BaseModel):
+    id: UUID
+    number: int = None
+    locccn: int = None
+    title: List[str] = None
