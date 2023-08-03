@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from typing import List
-from models import Book
+from models import Book, UpdateBook
 from uuid import UUID, uuid4
 
 app = FastAPI()
@@ -39,3 +39,17 @@ async def delete_book(id: UUID):
     return HTTPException(
         status_code=400, detail=f"Book with id {id} could not be found"
     )
+
+
+@app.put("/api/books/{id}")
+async def update_book(id: UUID, book_update: UpdateBook):
+    for book in db:
+        if book.id == book_update.id:
+            if book_update.title:
+                book.title = book_update.title
+            if book_update.number:
+                book.number = book_update.number
+            if book_update.locccn:
+                book.locccn = book_update.locccn
+            return 200
+    return HTTPException(status_code=400, detail=f"Book with id {id} does not exist")
