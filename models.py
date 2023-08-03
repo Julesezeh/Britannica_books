@@ -3,11 +3,9 @@ from uuid import UUID, uuid4
 from typing import List
 
 
-class Greats(BaseModel):
-    name: str
-
-
+# locccn-->library of congress catalog card number
 class Book(BaseModel):
     id: UUID = uuid4()
-    isbn: int
-    title: List[Greats]
+    number: int
+    locccn: int
+    title: List[str]
