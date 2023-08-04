@@ -5,7 +5,10 @@ from uuid import UUID, uuid4
 
 app = FastAPI()
 
-db: List[Book] = []
+db: List[Book] = [
+    Book(locccn=1313, number=13, title=["Plato", "Bih"]),
+    Book(locccn=1213, number=14, title=["Aristotle", "Bih"]),
+]
 
 
 @app.get("/api/books/")
