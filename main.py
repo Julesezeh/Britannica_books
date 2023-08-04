@@ -6,8 +6,8 @@ from uuid import UUID, uuid4
 app = FastAPI()
 
 db: List[Book] = [
-    Book(locccn=1313, number=13, title=["Plato", "Bih"]),
-    Book(locccn=1213, number=14, title=["Aristotle", "Bih"]),
+    Book(id=uuid4(), locccn=1313, number=13, title=["Plato", "Bih"]),
+    Book(id=uuid4(), locccn=1213, number=14, title=["Aristotle", "Bih"]),
 ]
 
 
@@ -47,12 +47,14 @@ async def delete_book(id: UUID):
 @app.put("/api/books/{id}")
 async def update_book(id: UUID, book_update: UpdateBook):
     for book in db:
-        if book.id == book_update.id:
+        if book.id == id:
+            if book_update.id:
+                book.id = book_update.id
             if book_update.title:
                 book.title = book_update.title
             if book_update.number:
                 book.number = book_update.number
             if book_update.locccn:
                 book.locccn = book_update.locccn
-            return 200
+            return book
     return HTTPException(status_code=400, detail=f"Book with id {id} does not exist")

@@ -12,7 +12,7 @@ class Book(BaseModel):
 
 
 class UpdateBook(BaseModel):
-    id: UUID
+    id: UUID = None
     number: int = None
     locccn: int = None
     title: List[str] = None
