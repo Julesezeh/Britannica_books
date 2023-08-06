@@ -2,8 +2,25 @@ from fastapi import FastAPI, HTTPException
 from typing import List
 from models import Book, UpdateBook
 from uuid import UUID, uuid4
+from sqlalchemy import create_engine
+from sqlalchemy.engine import URL
+from sqlalchemy.orm import sessionmaker
 
 app = FastAPI()
+
+# database configs
+url = URL.create(
+    drivername="mysql",
+    username="freedb_jules",
+    password="TVz9esH#Sgz4yV&",
+    host="sql.freedb.tech",
+    database="freedb_brittanica_books",
+    port=3306,
+)
+engine = create_engine(url)
+Session = sessionmaker(bind=engine)
+session = Session()
+
 
 db: List[Book] = [
     Book(id=uuid4(), locccn=1313, number=13, title=["Plato", "Bih"]),
