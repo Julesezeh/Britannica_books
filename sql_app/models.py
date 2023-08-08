@@ -19,7 +19,7 @@ class Book(Base):
     __tablename__ = "items"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
+    title = Column(String)
     locccn = Column(Integer, index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
