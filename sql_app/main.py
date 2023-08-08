@@ -51,3 +51,9 @@ def create_book_for_user(
 def read_books(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     books = crud.get_books(db, skip=skip, limit=limit)
     return books
+
+
+@app.get("/book/")
+def get_book_by_locccn(locccn: int, db: Session = Depends(get_db)):
+    book = crud.get_book_by_locccn(db, locccn=locccn)
+    return book
