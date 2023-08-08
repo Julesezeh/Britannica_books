@@ -2,8 +2,7 @@ from pydantic import BaseModel
 
 
 class BaseBook(BaseModel):
-    title: list[str] = []
-    description: str | None = None
+    title: str
     locccn: int
 
 
@@ -16,7 +15,7 @@ class Book(BaseBook):
     owner_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserBase(BaseModel):
@@ -33,4 +32,4 @@ class User(UserBase):
     books: list[Book] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
