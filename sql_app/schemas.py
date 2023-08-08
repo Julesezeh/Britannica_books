@@ -4,6 +4,7 @@ from pydantic import BaseModel
 class BaseBook(BaseModel):
     title: list[str] = []
     description: str | None = None
+    locccn: int
 
 
 class BookCreate(BaseBook):
