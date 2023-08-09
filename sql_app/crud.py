@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from fastapi import HTTPException
 
 from . import models, schemas
 
@@ -37,4 +38,10 @@ def create_book(db: Session, book: schemas.BookCreate, user_id: int):
 
 
 def get_book_by_locccn(db: Session, locccn: int):
-    return db.query(models.Book).filter_by(locccn=locccn)[0]
+    book = db.query(models.Book).filter_by(locccn=locccn)[:]
+    if book:
+        return book
+    else:
+        raise HTTPException(
+            status_code=404, detail=f"Book with locccn {locccn} not found"
+        )
