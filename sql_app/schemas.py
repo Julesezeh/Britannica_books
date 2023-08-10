@@ -10,6 +10,11 @@ class BookCreate(BaseBook):
     pass
 
 
+class UpdateBook(BaseBook):
+    title: str = None
+    locccn: int = None
+
+
 class Book(BaseBook):
     id: int
     owner_id: int

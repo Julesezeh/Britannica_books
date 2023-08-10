@@ -45,3 +45,18 @@ def get_book_by_locccn(db: Session, locccn: int):
         raise HTTPException(
             status_code=404, detail=f"Book with locccn {locccn} not found"
         )
+
+
+def update_book(db: Session, id: int, book: schemas.UpdateBook):
+    existing_book = db.query(models.Book).filter_by(id=id)[0]
+    if existing_book:
+        if book.title:
+            existing_book.title = book.title
+        if book.locccn:
+            existing_book.locccn = book.locccn
+        print(existing_book)
+        db.add(existing_book)
+        db.commit()
+        db.refresh(existing_book)
+        return existing_book
+    raise HTTPException(status_code=404, detail="File not found")
