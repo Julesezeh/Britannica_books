@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 
 class BaseBook(BaseModel):
@@ -34,7 +35,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     is_active: bool
-    books: list[Book] = []
+    books: List[Book] = []
 
     class Config:
         from_attributes = True
