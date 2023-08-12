@@ -22,6 +22,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
+    db.close()
     return db_user
 
 
@@ -34,6 +35,7 @@ def create_book(db: Session, book: schemas.BookCreate, user_id: int):
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
+    db.close()
     return db_item
 
 
@@ -58,5 +60,6 @@ def update_book(db: Session, id: int, book: schemas.UpdateBook):
         db.add(existing_book)
         db.commit()
         db.refresh(existing_book)
+        db.close()
         return existing_book
     raise HTTPException(status_code=404, detail="File not found")
