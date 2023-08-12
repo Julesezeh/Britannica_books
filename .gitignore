@@ -1,3 +1,2 @@
 /ProjectVenv
-db.db
-database.db
+*.db
