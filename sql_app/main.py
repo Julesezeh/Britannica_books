@@ -2,8 +2,11 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from . import crud, models, schemas
+from .models import User
 from .database import SessionLocal, engine
 
+# First for dropping all tables, second for creating all tables
+models.Base.metadata.drop_all(bind=engine)
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
