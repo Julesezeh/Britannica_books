@@ -6,8 +6,8 @@ from .models import User
 from .database import SessionLocal, engine
 
 # First for dropping all tables, second for creating all tables
-models.Base.metadata.drop_all(bind=engine)
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.drop_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
