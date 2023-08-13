@@ -66,11 +66,10 @@ def update_book(db: Session, id: int, book: schemas.UpdateBook):
 
 
 def delete_book(db: Session, id: int):
-    db_book = db.query(models.Book).filter(id=id)[0]
+    db_book = db.query(models.Book).filter_by(id=id)[0]
     if db_book:
         db.delete(db_book)
         db.commit()
-        db.refresh()
         return db_book
     else:
         raise HTTPException("Book with id {id} not found")
