@@ -66,3 +66,9 @@ async def get_book_by_locccn(locccn: int, db: Session = Depends(get_db)):
 async def update_book(id: int, book: schemas.UpdateBook, db: Session = Depends(get_db)):
     book = crud.update_book(db, id, book)
     return book
+
+
+@app.delete("/api/v1/books/{id}")
+async def delete_book(id: int, db: Session = Depends(get_db)):
+    book = crud.delete_book(db=db, id=id)
+    return book
