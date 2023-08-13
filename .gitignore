@@ -1,3 +1,4 @@
 /ProjectVenv
 *.db
 .env
+curl_history.txt
