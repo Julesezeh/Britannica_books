@@ -63,3 +63,14 @@ def update_book(db: Session, id: int, book: schemas.UpdateBook):
         db.close()
         return existing_book
     raise HTTPException(status_code=404, detail="File not found")
+
+
+def delete_book(db: Session, id: int):
+    db_book = db.query(models.Book).filter(id=id)[0]
+    if db_book:
+        db.delete(db_book)
+        db.commit()
+        db.refresh()
+        return db_book
+    else:
+        raise HTTPException("Book with id {id} not found")
