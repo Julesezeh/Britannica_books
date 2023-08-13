@@ -12,7 +12,9 @@ database = os.environ.get("DATABASE")
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./database.db"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{username}:{password}@{host}:3306/{database}"
+SQLALCHEMY_DATABASE_URL = (
+    f"mysql+pymysql://{username}:{password}@{host}:3306/{database}"
+)
 
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
