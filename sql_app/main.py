@@ -21,6 +21,11 @@ def get_db():
         db.close()
 
 
+@app.get("/")
+async def home():
+    return {"message": "Request successful"}
+
+
 @app.post("/api/v1/users/")
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
