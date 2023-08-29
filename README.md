@@ -2,10 +2,10 @@ A FastAPI project that stores brittanica books.
 CRUD functionality available
 Docs are available at ../docs
 
-[SWAGGER DOCUMENTATION](https://britanncaflask.pythonanywhere.com/)
-![Library Gif](https://media1.tenor.com/images/94a98af4e6d102c32034b46920d0317e/tenor.gif?itemid=9965365)
+[SWAGGER DOCUMENTATION](https://brittanica-books.onrender.com/docs)
+![Library Gif](https://media3.giphy.com/media/3o7btW1Js39uJ23LAA/giphy.gif)
 
-# BOOKS
+<!-- # BOOKS
 
 ### GET ALL BOOKS (GET)
 
@@ -40,7 +40,7 @@ Docs are available at ../docs
 }
 ```
 ### DELETE A BOOK
-                https://britanncaflask.pythonanywhere.com/api/books/{id}
+                https://britanncaflask.pythonanywhere.com/api/books/{id} -->
 
 # USERS
 ### GET ALL USERS (GET)
@@ -61,7 +61,7 @@ Docs are available at ../docs
 }
 ```
 
-### UPDATE A USER (PUT)
+<!-- ### UPDATE A USER (PUT)
             https://brittanica-books.onrender.com/api/v1/users/{id}
 
 *payload (Example value)*
@@ -69,7 +69,7 @@ Docs are available at ../docs
 {
   "username": "string"
 }
-```
+``` -->
 
 ### DELETE A USER (DELETE)
                 https://britanncaflask.pythonanywhere.com/api/users/{id}
