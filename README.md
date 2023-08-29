@@ -67,5 +67,5 @@
 }
 ``` -->
 
-### DELETE A USER (DELETE)
-                https://britanncaflask.pythonanywhere.com/api/users/{id}
+<!-- ### DELETE A USER (DELETE)
+                https://britanncaflask.pythonanywhere.com/api/users/{id} -->
