@@ -44,13 +44,13 @@ Docs are available at ../docs
 
 # USERS
 ### GET ALL USERS (GET)
-                https://britanncaflask.pythonanywhere.com/api/users
+                https://brittanica-books.onrender.com/api/v1/users
 
 ### GET SPECIFIC USER (GET)
-                https://britanncaflask.pythonanywhere.com/api/users{id}
+                https://brittanica-books.onrender.com/api/v1/users{id}
 
 ### CREATE NEW USER (POST)
-                https://britanncaflask.pythonanywhere.com/api/users
+                https://brittanica-books.onrender.com/api/v1/users
 
 
 *payload (Example Value)*
@@ -61,7 +61,7 @@ Docs are available at ../docs
 ```
 
 ### UPDATE A USER (PUT)
-            https://britanncaflask.pythonanywhere.com/api/users/{id}
+            https://brittanica-books.onrender.com/api/v1/users/{id}
 
 *payload (Example value)*
 ```js
