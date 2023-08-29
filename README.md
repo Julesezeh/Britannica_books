@@ -56,7 +56,8 @@ Docs are available at ../docs
 *payload (Example Value)*
 ```js
 {
-  "username": "string"
+  "email": "string",
+  "password":"string"
 }
 ```
 
