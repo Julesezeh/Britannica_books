@@ -48,6 +48,11 @@ async def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
+@app.delete("/api/v1/users/{user_id}")
+async def delete_user(user_id: int, db: Session = Depends(get_db)):
+    return crud.delete_user(user_id=user_id, db=db)
+
+
 @app.post("/api/v1/users/{user_id}/books/")
 async def create_book_for_user(
     user_id: int, book: schemas.BookCreate, db: Session = Depends(get_db)
