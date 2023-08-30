@@ -26,6 +26,16 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
+def delete_user(db: Session, user_id: int):
+    user = db.query(models.User).filter_by(id=user_id)
+    if user:
+        db.delete(user)
+        db.commit()
+        return None, 204
+    else:
+        raise HTTPException("User with id {id} not found")
+
+
 def get_books(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Book).offset(skip).limit(limit).all()
 
@@ -70,6 +80,6 @@ def delete_book(db: Session, id: int):
     if db_book:
         db.delete(db_book)
         db.commit()
-        return db_book
+        return None, 204
     else:
         raise HTTPException("Book with id {id} not found")
