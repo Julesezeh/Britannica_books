@@ -1,12 +1,12 @@
 [SWAGGER DOCUMENTATION](https://brittanica-books.onrender.com/docs)
 ![Library Gif](https://media3.giphy.com/media/3o7btW1Js39uJ23LAA/giphy.gif)
 
-<!-- # BOOKS
+# BOOKS
 
 ### GET ALL BOOKS (GET)
 
-                https://britanncaflask.pythonanywhere.com/api/books
-
+                https://brittanica-books.onrender.com/api/v1/books/
+                
 ### GET SPECIFIC BOOK (GET)
                 https://britanncaflask.pythonanywhere.com/api/books/{id}
 
