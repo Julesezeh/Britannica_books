@@ -33,7 +33,7 @@ class UserCreate(UserBase):
 
 
 class UserUpdate(UserBase):
-    is_active: bool
+    is_active: bool = None
 
 
 class User(UserBase):
