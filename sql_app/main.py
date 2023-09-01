@@ -48,6 +48,14 @@ async def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
+@app.put("/api/v1/users/{user_id}")
+async def update_user(
+    user_id: int, data: schemas.UserUpdate, db: Session = Depends(get_db)
+):
+    user = crud.update_user(user_id=user_id, data=data, db=db)
+    return user
+
+
 @app.delete("/api/v1/users/{user_id}")
 async def delete_user(user_id: int, db: Session = Depends(get_db)):
     return crud.delete_user(user_id=user_id, db=db)
