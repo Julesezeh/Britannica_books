@@ -26,6 +26,19 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
+def update_user(db: Session, user_id: int, data: schemas.UserUpdate):
+    user = db.query(models.User).filter_by(id=user_id)
+    if user:
+        if data["email"]:
+            user["email"] = data["email"]
+        if data["password"]:
+            user["password"] = data["password"]
+
+        return user
+    else:
+        raise HTTPException("User with id {id} not found")
+
+
 def delete_user(db: Session, user_id: int):
     user = db.query(models.User).filter_by(id=user_id)
     if user:
