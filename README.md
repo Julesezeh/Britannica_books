@@ -57,15 +57,17 @@
 }
 ```
 
-<!-- ### UPDATE A USER (PUT)
+### UPDATE A USER (PUT)
             https://brittanica-books.onrender.com/api/v1/users/{id}
 
 *payload (Example value)*
 ```js
 {
-  "username": "string"
+  "email": "string",
+  "is_active": bool,
+
 }
-``` -->
+```
 
 ### DELETE A USER (DELETE) 
                https://brittanica-books.onrender.com/api/v1/users/{id}
