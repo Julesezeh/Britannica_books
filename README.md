@@ -6,13 +6,13 @@
 ### GET ALL BOOKS (GET)
 
                 https://brittanica-books.onrender.com/api/v1/books/
-                
-### GET SPECIFIC BOOK (GET)
-                https://britanncaflask.pythonanywhere.com/api/books/{id}
+
+### GET SPECIFIC BOOK BY LOCCCN (GET)
+                https://brittanica-books.onrender.com/api/v1/book/?locccn=int
 
 
 ### CREATE NEW BOOK (POST)
-                https://britanncaflask.pythonanywhere.com/api/books
+                https://brittanica-books.onrender.com/api/v1/books
 
 
 *payload (Example Value)*
