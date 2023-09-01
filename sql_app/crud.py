@@ -27,16 +27,21 @@ def create_user(db: Session, user: schemas.UserCreate):
 
 
 def update_user(db: Session, user_id: int, data: schemas.UserUpdate):
-    user = db.query(models.User).filter_by(id=user_id)
+    user = db.query(models.User).get(user_id)
     if user:
-        if data["email"]:
-            user["email"] = data["email"]
-        if data["password"]:
-            user["password"] = data["password"]
+        print(user)
+        if data.email:
+            user.email = data.email
+        if data.is_active:
+            user.is_active = data.is_active
 
-        return user
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+
+        return user, 200
     else:
-        raise HTTPException("User with id {id} not found")
+        raise HTTPException(detail=f"User with id {user_id} not found", status_code=404)
 
 
 def delete_user(db: Session, user_id: int):
@@ -46,7 +51,7 @@ def delete_user(db: Session, user_id: int):
         db.commit()
         return None, 204
     else:
-        raise HTTPException("User with id {id} not found")
+        raise HTTPException(f"User with id {id} not found")
 
 
 def get_books(db: Session, skip: int = 0, limit: int = 100):
