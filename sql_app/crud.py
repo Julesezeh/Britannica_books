@@ -68,7 +68,6 @@ def create_book(db: Session, book: schemas.BookCreate, user_id: int):
 
 
 def get_book_by_locccn(db: Session, locccn: int):
-    print(locccn)
     book = db.query(models.Book).filter_by(locccn=locccn)[:]
     if book:
         return book
