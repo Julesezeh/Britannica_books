@@ -10,7 +10,7 @@ load_dotenv()
 # host = os.getenv("DB_HOST")
 # database = os.getenv("DB_DATABASE")
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./database.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///database.db"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 # SQLALCHEMY_DATABASE_URL = (
 #     f"mysql+pymysql://{username}:{password}@{host}:3306/{database}"
