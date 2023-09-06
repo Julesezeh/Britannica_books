@@ -5,3 +5,7 @@ micros:
     src: ./
     engine: python3.9
     primary: true
+    run: uvicorn sql_app.main:app
+    # public_routes:
+    #   -"/*"
+
